@@ -1,7 +1,7 @@
 # GSOS
 An OS-like Interface running on web with React.
 
-##Installation
+## Installation
 You need NodeJS installed first.
 In the project directory, you need to run:
 
@@ -11,5 +11,5 @@ then,
 
 Open `http://localhost:3000` to view it in the browser.
 
-##Screenshot
+## Screenshot
 ![Screenshot 20180324](https://github.com/GuptaSiddhant/GSOS/blob/master/screenshot/20180324.png)
