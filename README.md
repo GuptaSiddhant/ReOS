@@ -11,3 +11,5 @@ then,
 
 Open `http://localhost:3000` to view it in the browser.
 
+##Screenshot
+![Screenshot 20180324](https://github.com/GuptaSiddhant/GSOS/blob/master/screenshot/20180324.png)
