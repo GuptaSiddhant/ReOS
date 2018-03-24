@@ -1,5 +1,4 @@
 import React from 'react';
-import './MenuBar.css'
 
 class Clock extends React.Component {
     constructor(props) {
@@ -31,38 +30,18 @@ class Clock extends React.Component {
     }
 }
 
-class Application extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {x: 0, y: 0};
-    }
-
-    _onMouseMove(e) {
-        this.setState({x: e.screenX, y: e.screenY});
-    }
-
+class DropDown extends React.Component{
     render() {
-        const {x, y} = this.state;
-        return <div onMouseMove={this._onMouseMove.bind(this)}>
-            Mouse coordinates: {x} {y}
-        </div>;
-    }
+    return (
+        <span>Hi</span>
+    );}
 }
 
 
 export class MenuBar extends React.Component {
-    constructor(props) {
-        super(props);
-    };
 
-    onFocus() {
-        var domRect = this.myInput.getBoundingClientRect();
-        this.myInput.textContent = domRect.left;
-    }
-
-    onBlur() {
-        this.myInput.setAttribute("class", "");
+    handleClick() {
+        <DropDown/>
     }
 
     render() {
@@ -75,16 +54,10 @@ export class MenuBar extends React.Component {
 
                 <div className="menuBar menuLeft d-flex justify-content-start text-white align-items-center">
                     <div className="p-4 gsLogo">GS</div>
-                    <div className="p-2" id="File">
-                        <label
-                            ref={input => {
-                                this.myInput = input;
-                            }}
-                            onClick={this.onFocus.bind(this)}
-                            onMouseDown={this.onBlur.bind(this)}
-                        >File</label>
+                    <div className="p-1" id="File" onMouseDown={() => this.handleClick()}>
+                        <span className="menuItem">File</span>
                     </div>
-                    <div className="p-2">Help</div>
+                    <div className="p-1">Help</div>
                 </div>
             </section>
         );
