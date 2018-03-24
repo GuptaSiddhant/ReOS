@@ -1,9 +1,11 @@
 import React from 'react';
+import wifiTrue from './assets/wifiTrue.svg';
+import wifiFalse from './assets/wifiFalse.svg';
 
-class Clock extends React.Component {
+class StatusBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {date: new Date()};
+        this.state = {date: new Date(), isOnline: navigator.onLine};
     }
 
     componentDidMount() {
@@ -19,45 +21,43 @@ class Clock extends React.Component {
 
     tick() {
         this.setState({
-            date: new Date()
+            date: new Date(),
+            isOnline: navigator.onLine
         });
     }
 
     render() {
         return (
-            this.state.date.toDateString() + ', ' + this.state.date.toLocaleTimeString()
+            <div>
+                {this.state.isOnline ?
+                <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
+                <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
+                <span>
+                    {this.state.date.toDateString() + ', ' + this.state.date.toLocaleTimeString()}
+                </span>
+            </div>
         );
     }
-}
-
-class DropDown extends React.Component{
-    render() {
-    return (
-        <span>Hi</span>
-    );}
 }
 
 
 export class MenuBar extends React.Component {
 
-    handleClick() {
-        <DropDown/>
+    constructor(props) {
+        super(props);
+        this.state = {offline: "offline"};
     }
 
     render() {
         return (
             <section>
-                <div className="menuBar menuRight d-flex text-white align-items-center justify-content-end">
-                    <div className="p-2">Go</div>
-                    <div className="p-4"><Clock/></div>
+                <div className="menuBar menuRight d-flex text-white  align-items-center justify-content-end">
+                    <div className="p-1"><StatusBar /></div>
                 </div>
 
-                <div className="menuBar menuLeft d-flex justify-content-start text-white align-items-center">
-                    <div className="p-4 gsLogo">GS</div>
-                    <div className="p-1" id="File" onMouseDown={() => this.handleClick()}>
-                        <span className="menuItem">File</span>
-                    </div>
-                    <div className="p-1">Help</div>
+                <div className="menuBar menuLeft d-flex justify-content-start text-white align-items-center ">
+                    <div className="p-1 gsLogo">GS</div>
+
                 </div>
             </section>
         );

@@ -3,7 +3,7 @@
 }
 
 .mainContainer {
-    background-color: aqua;
+    background-color: #ff59ff;
     display: flex;
     flex: 1;
 }
