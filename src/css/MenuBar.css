@@ -17,29 +17,23 @@
     padding: 10px;
     border-radius: 20px;
     align-items: center;
+    height: auto;
 }
 
-.menuRight {
+.menuStatus {
     right: 20px;
     bottom: 20px;
 }
 
-.menuLeft {
-    min-width: 100px;
-
+.menuNav {
+    width: auto;
     top: 10px;
-    left: 10px;
-}
-
-.subMenuLeft {
-    min-width: 100px;
-    top: 50px;
     left: 10px;
 }
 
 .gsButton {
     font-weight: 900;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-right: 20px;
 }
 

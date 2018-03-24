@@ -1,7 +1,8 @@
 import React from 'react';
 import wifiTrue from './assets/wifiTrue.svg';
 import wifiFalse from './assets/wifiFalse.svg';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
+
 
 class StatusBar extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class StatusBar extends React.Component {
 
     render() {
         return (
-            <div className="menuBar menuRight align-items-center">
+            <div className="menuBar menuStatus align-items-center">
                 {this.state.isOnline ?
                     <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
                     <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
@@ -40,25 +41,63 @@ class StatusBar extends React.Component {
         );
     }
 }
+/*
 
-function GSBar (){
+function GSBar() {
 
-        return (
+    return (
 
-            <section>
-                <div className="menuBar menuLeft gsButton">GS
-                </div>
+        <div className="dropdown">
+            <Button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+            </Button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a className="dropdown-item" href="#">Action</a>
+                <a className="dropdown-item" href="#">Another action</a>
+                <a className="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
 
-                    <div className="menuBar menuLeft collapse hidden d-flex">
-                        <div className="p-1">GS</div>
-                        <div className="p-1">File</div>
-                        <div className="p-1">Refresh</div>
-                    </div>
-            </section>
-
-        );
+    );
 }
+*/
+class GSNav extends React.Component {
+    constructor(props) {
+        super(props);
 
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            dropdownOpen: false
+        };
+    }
+
+    toggle() {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        });
+    }
+
+    render() {
+        return (
+            <div className="menuBar menuNav">
+                <Nav pills>
+                    <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                        <DropdownToggle nav caret>
+                            Dropdown
+                        </DropdownToggle>
+                        <DropdownMenu>
+                            <DropdownItem header>Header</DropdownItem>
+                            <DropdownItem disabled>Action</DropdownItem>
+                            <DropdownItem>Another Action</DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem>Another Action</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Nav>
+            </div>
+        );
+    }
+}
 
 export class MenuBar extends React.Component {
 
@@ -70,8 +109,8 @@ export class MenuBar extends React.Component {
     render() {
         return (
             <section>
+                <GSNav/>
                 <StatusBar/>
-                <GSBar/>
             </section>
         );
     }

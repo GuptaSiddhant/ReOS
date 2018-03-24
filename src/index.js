@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import {MenuBar} from "./components/MenuBar";
-
 import './css/index.css';
 import './css/MenuBar.css';
 
