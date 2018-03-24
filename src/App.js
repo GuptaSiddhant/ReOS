@@ -1,21 +1,16 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {MenuBar} from './components/MenuBar.jsx'
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App d-flex flex-column">
+                <MenuBar/>
+                <div className="align-self-stretch mainContainer" id="body"></div>
+            </div>
+        );
+    }
 }
 
 export default App;
