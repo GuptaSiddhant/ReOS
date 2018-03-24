@@ -1,6 +1,7 @@
 import React from 'react';
 import wifiTrue from './assets/wifiTrue.svg';
 import wifiFalse from './assets/wifiFalse.svg';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 class StatusBar extends React.Component {
     constructor(props) {
@@ -28,11 +29,11 @@ class StatusBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="menuBar menuRight align-items-center">
                 {this.state.isOnline ?
-                <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
-                <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
-                <span>
+                    <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
+                    <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
+                <span className="menuIcon">
                     {this.state.date.toDateString() + ', ' + this.state.date.toLocaleTimeString()}
                 </span>
             </div>
@@ -40,25 +41,37 @@ class StatusBar extends React.Component {
     }
 }
 
+function GSBar (){
+
+        return (
+
+            <section>
+                <div className="menuBar menuLeft gsButton">GS
+                </div>
+
+                    <div className="menuBar menuLeft collapse hidden d-flex">
+                        <div className="p-1">GS</div>
+                        <div className="p-1">File</div>
+                        <div className="p-1">Refresh</div>
+                    </div>
+            </section>
+
+        );
+}
+
 
 export class MenuBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {offline: "offline"};
+        this.state = {uiMode: "dark"};
     }
 
     render() {
         return (
             <section>
-                <div className="menuBar menuRight d-flex text-white  align-items-center justify-content-end">
-                    <div className="p-1"><StatusBar /></div>
-                </div>
-
-                <div className="menuBar menuLeft d-flex justify-content-start text-white align-items-center ">
-                    <div className="p-1 gsLogo">GS</div>
-
-                </div>
+                <StatusBar/>
+                <GSBar/>
             </section>
         );
     }
