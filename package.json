@@ -9,6 +9,7 @@
     "quill": "^1.3.6",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
+    "react-chat-widget": "^2.1.2",
     "react-dnr": "^0.4.0",
     "react-dom": "^16.2.0",
     "react-draggable": "^3.0.5",
