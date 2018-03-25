@@ -14,11 +14,12 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <MenuBar/>
+
                 <Settings />
                 <div className="mainContainer" id="body">
 
                 </div>
+                <MenuBar/>
             </div>
         );
     }
