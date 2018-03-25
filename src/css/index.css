@@ -18,3 +18,28 @@ body {
     display: flex;
     flex: 1;
 }
+
+.windowBackground {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    min-height: 400px;
+    min-width: 400px;
+    width: 600px;
+    border-radius: 10px;
+}
+
+.windowHeading {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.windowBody {
+  padding: 10px;
+}
