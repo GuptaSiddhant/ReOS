@@ -1,7 +1,7 @@
 import React from 'react';
 import wifiTrue from './assets/wifiTrue.svg';
 import wifiFalse from './assets/wifiFalse.svg';
-import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
+import {Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink} from 'reactstrap';
 
 
 class StatusBar extends React.Component {
@@ -30,38 +30,19 @@ class StatusBar extends React.Component {
 
     render() {
         return (
-            <div className="menuBar menuStatus align-items-center">
+            <div className="menuUI menuBar menuStatus">
                 {this.state.isOnline ?
-                    <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
-                    <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
-                <span className="menuIcon">
+                    <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuItem"/> :
+                    <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuItem"/>}
+                <span className="menuItem">
                     {this.state.date.toDateString() + ', ' + this.state.date.toLocaleTimeString()}
                 </span>
             </div>
         );
     }
 }
-/*
 
-function GSBar() {
-
-    return (
-
-        <div className="dropdown">
-            <Button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-            </Button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">Action</a>
-                <a className="dropdown-item" href="#">Another action</a>
-                <a className="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>
-
-    );
-}
-*/
-class GSNav extends React.Component {
+class GSBar extends React.Component {
     constructor(props) {
         super(props);
 
@@ -79,22 +60,24 @@ class GSNav extends React.Component {
 
     render() {
         return (
-            <div className="menuBar menuNav">
-                <Nav pills>
-                    <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                        <DropdownToggle nav caret>
-                            Dropdown
-                        </DropdownToggle>
-                        <DropdownMenu>
-                            <DropdownItem header>Header</DropdownItem>
-                            <DropdownItem disabled>Action</DropdownItem>
-                            <DropdownItem>Another Action</DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem>Another Action</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                </Nav>
-            </div>
+            <Dropdown nav direction="down"  isOpen={this.state.dropdownOpen} toggle={this.toggle} className="menuUI menuBar menuNav">
+                <DropdownToggle nav className="gsButton">
+                    GS ReOS
+                </DropdownToggle>
+                <DropdownMenu className="menuUI menuDropDown">
+                    <DropdownItem header className="menuListHeader">Applications</DropdownItem>
+                    <DropdownItem className="menuList">Notepad</DropdownItem>
+                    <DropdownItem className="menuList">Browser</DropdownItem>
+                    <DropdownItem divider/>
+                    <DropdownItem header className="menuListHeader">System</DropdownItem>
+                    <DropdownItem className="menuList">About ReOS</DropdownItem>
+                    <DropdownItem className="menuList">Settings</DropdownItem>
+                    <DropdownItem className="menuList"
+                                  href="javascript:window.location.reload();">Refresh</DropdownItem>
+                    <DropdownItem className="menuList"
+                                  href="javascript:window.open('', '_self', '');window.close();">Exit</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
         );
     }
 }
@@ -109,8 +92,9 @@ export class MenuBar extends React.Component {
     render() {
         return (
             <section>
-                <GSNav/>
+                <GSBar/>
                 <StatusBar/>
+
             </section>
         );
     }

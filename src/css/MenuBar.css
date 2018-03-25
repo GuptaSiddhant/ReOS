@@ -1,23 +1,23 @@
 .hidden {
     display: none !important;
 }
-.shown {
-    display: block !important;
-}
 
-.menuBar {
-    display: flex;
-    flex-direction: row;
+.menuUI {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     min-height: 40px;
+    border-radius: 20px;
+}
+
+.menuBar {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
     position: absolute;
     padding: 10px;
-    border-radius: 20px;
     align-items: center;
-    height: auto;
 }
 
 .menuStatus {
@@ -27,38 +27,36 @@
 
 .menuNav {
     width: auto;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
 }
 
-.gsButton {
-    font-weight: 900;
-    padding-left: 10px;
-    padding-right: 20px;
+.menuUI:hover, .menuUI:active {
+    background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
 .menuItem {
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
-
-.menuItem:hover {
-    background-color: #5a6268;
-}
-
-.menuIcon {
     height: 22px;
-    padding-right: 10px;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
-.test {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 30px;
-    position: absolute;
-    top: 50px;
-    left: 50px;
+.menuList {
+    color: rgba(255,255,2555,0.75);
+}
+
+.menuListHeader {
+    color: rgba(255,255,2555,0.5);
+    font-weight: bold;
+}
+
+
+.gsButton {
+    font-weight: 900;
+    padding: auto;
+    color: white;
+}
+.gsButton:hover {
+    text-decoration: none;
+    color: white;
 }
