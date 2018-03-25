@@ -1,4 +1,4 @@
-# GSOS
+# GS ReOS
 An OS-like Interface running on web with React.
 
 ### Installation
@@ -19,5 +19,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Requires __[ReactStrap](https://reactstrap.github.io)__ _-Simple React Bootstrap 4 components_.
 
-### Screenshot
-![Screenshot 20180324](https://github.com/GuptaSiddhant/GSOS/blob/master/screenshot/20180324.png)
+### Screenshots
+2018-03-25
+![Screenshot 20180325](https://github.com/GuptaSiddhant/GSOS/blob/master/screenshots/20180325.png)
+
+2018-03-24
+![Screenshot 20180324](https://github.com/GuptaSiddhant/GSOS/blob/master/screenshots/20180324.png)
