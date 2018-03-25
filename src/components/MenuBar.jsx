@@ -1,12 +1,107 @@
 import React from 'react';
 import wifiTrue from './assets/wifiTrue.svg';
 import wifiFalse from './assets/wifiFalse.svg';
-import {Nav, Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
+import {Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
+
+export function MenuBar() {
+
+    return (
+        <section>
+            <GSBar/>
+            <StatusBar/>
+
+        </section>
+    );
+}
+
+class GSBar extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.toggleGS = this.toggleGS.bind(this);
+        this.toggleApp = this.toggleApp.bind(this);
+        this.toggleGame = this.toggleGame.bind(this);
+        this.state = {
+            dropdownGS: false,
+            dropdownGame: false,
+            dropdownApp: false
+        };
+    }
+
+    toggleGS() {
+        this.setState({
+            dropdownGS: !this.state.dropdownGS
+        });
+    }
+
+    toggleApp() {
+        this.setState({
+            dropdownApp: !this.state.dropdownApp
+        });
+    }
+
+    toggleGame() {
+        this.setState({
+            dropdownGame: !this.state.dropdownGame
+        });
+    }
+
+    render() {
+        return (
+            <div className="menuBar menuNav menuUI">
+                <Nav pills>
+                    <Dropdown nav direction="down" isOpen={this.state.dropdownGS} toggle={this.toggleGS}
+                              className="">
+                        <DropdownToggle nav className="gsButton">
+                            GS ReOS
+                        </DropdownToggle>
+                        <DropdownMenu className="menuUI menuDropDown">
+                            <DropdownItem className="menuList" disabled>About ReOS</DropdownItem>
+                            <DropdownItem className="menuList" disabled>Settings</DropdownItem>
+                            <DropdownItem className="menuList" disabled>Lock Screen</DropdownItem>
+                            <DropdownItem className="menuList"
+                                          href="javascript:window.location.reload();">Restart</DropdownItem>
+                            <DropdownItem className="menuList"
+                                          href="javascript:window.open('', '_self', '');window.close();">ShutDown</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                    <Dropdown nav direction="down" isOpen={this.state.dropdownApp} toggle={this.toggleApp}
+                              className="">
+                        <DropdownToggle nav className="menuItem">
+                            Applications
+                        </DropdownToggle>
+                        <DropdownMenu className="menuUI menuDropDown">
+                            <DropdownItem className="menuList">Notes</DropdownItem>
+                            <DropdownItem className="menuList" disabled>ChatBot</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                    <Dropdown nav direction="down" isOpen={this.state.dropdownGame} toggle={this.toggleGame}
+                              className="">
+                        <DropdownToggle nav className="menuItem">
+                            Games
+                        </DropdownToggle>
+                        <DropdownMenu className="menuUI menuDropDown">
+                            <DropdownItem className="menuList">Rival Rush</DropdownItem>
+                            <DropdownItem className="menuList" disabled>Answer Me</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Nav>
+            </div>
+        );
+    }
+}
 
 class StatusBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {date: new Date(), isOnline: navigator.onLine};
+        this.state = {
+            date: new Date(),
+            isOnline: navigator.onLine,
+            dropdownTime: false,
+            dropdownConnect: false,
+        };
+        this.toggleTime = this.toggleTime.bind(this);
+        this.toggleConnect = this.toggleConnect.bind(this);
     }
 
     componentDidMount() {
@@ -27,86 +122,42 @@ class StatusBar extends React.Component {
         });
     }
 
+    toggleConnect() {
+        this.setState({
+            dropdownConnect: !this.state.dropdownConnect
+        });
+    }
+
+    toggleTime() {
+        this.setState({
+            dropdownTime: !this.state.dropdownTime
+        });
+    }
+
     render() {
         return (
+
             <div className="menuUI menuBar menuStatus">
-                {this.state.isOnline ?
-                    <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
-                    <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
-                <span className="menuItem">
-                    {this.state.date.toDateString() + ', ' + this.state.date.toLocaleTimeString()}
-                </span>
-            </div>
-        );
-    }
-}
-
-class GSBar extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.toggleGS = this.toggleGS.bind(this);
-        this.toggleApp = this.toggleApp.bind(this);
-        this.state = {
-            dropdownGS: false,
-            dropdownApp: false
-        };
-    }
-
-    toggleGS() {
-        this.setState({
-            dropdownGS: !this.state.dropdownGS
-        });
-    }
-
-    toggleApp() {
-        this.setState({
-            dropdownApp: !this.state.dropdownApp
-        });
-    }
-
-    render() {
-        return (
-            <div className="menuBar menuNav menuUI">
                 <Nav pills>
-                    <Dropdown nav direction="down" isOpen={this.state.dropdownGS} toggle={this.toggleGS}
-                              className="">
-                        <DropdownToggle nav className="gsButton">
-                            GS ReOS
+                    <Dropdown nav direction="up" isOpen={this.state.dropdownConnect} toggle={this.toggleConnect}>
+                        <DropdownToggle nav className="menuItem">
+                            <img src={this.state.isOnline ? wifiTrue : wifiFalse} className="menuIcon"/>
                         </DropdownToggle>
-                        <DropdownMenu className="menuUI menuDropDown">
-                            <DropdownItem className="menuList">About ReOS</DropdownItem>
-                            <DropdownItem className="menuList">Settings</DropdownItem>
-                            <DropdownItem className="menuList">Lock Screen</DropdownItem>
-                            <DropdownItem className="menuList"
-                                          href="javascript:window.location.reload();">Restart</DropdownItem>
-                            <DropdownItem className="menuList"
-                                          href="javascript:window.open('', '_self', '');window.close();">ShutDown</DropdownItem>
+                        <DropdownMenu right className="menuUI menuDropDown">
+                            <DropdownItem header className="menuList">{this.state.isOnline ? "Connected to Internet" : "No Connection Found"}</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                    <Dropdown nav direction="down" isOpen={this.state.dropdownApp} toggle={this.toggleApp}
+                    <Dropdown nav direction="up" isOpen={this.state.dropdownTime} toggle={this.toggleTime}
                               className="">
                         <DropdownToggle nav className="menuItem">
-                            Applications
+                            {this.state.date.toLocaleTimeString()}
                         </DropdownToggle>
-                        <DropdownMenu className="menuUI menuDropDown">
-                            <DropdownItem className="menuList">Notepad</DropdownItem>
-                            <DropdownItem className="menuList">Browser</DropdownItem>
+                        <DropdownMenu right className="menuUI menuDropDown">
+                            <DropdownItem header className="menuList">{this.state.date.toDateString()}</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </Nav>
             </div>
         );
     }
-}
-
-export function MenuBar() {
-
-    return (
-        <section>
-            <GSBar/>
-            <StatusBar/>
-
-        </section>
-    );
 }

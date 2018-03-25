@@ -9,12 +9,13 @@ body {
     background-size: cover;
 }
 
-.app {
-    height: 100%;
-}
-
 .mainContainer {
-    background-color: #ff59ff;
+    border: 10px black;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    right: 0px;
+    bottom: 80px;
     display: flex;
     flex: 1;
 }
@@ -22,24 +23,36 @@ body {
 .windowBackground {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
-    min-height: 400px;
+    min-height: 40px;
     min-width: 400px;
-    width: 600px;
-    border-radius: 10px;
+    max-width: 1200px;
+    border-radius: 10px !important;
+    margin: 20px;
 }
 
 .windowHeading {
-    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px 10px 0px 0px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 40px;
 }
 
 .windowBody {
-  padding: 10px;
+  padding: 0px;
+    height: inherit;
+    background-color: white;
+    color: black;
+    width: 600px;
+    margin: 0px;
+}
+
+.footnote {
+    font-size: small;
+    color: gray;
+    font-style: italic;
+    padding-left: 10px;
 }
