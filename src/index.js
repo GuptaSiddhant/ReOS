@@ -17,8 +17,8 @@ class App extends Component {
         return (
             <div className="app">
                 <div className="mainContainer" id="body">
-                    <Notes/>
                     <RivalRush/>
+                    <Notes/>
                 </div>
                 <MenuBar/>
             </div>
