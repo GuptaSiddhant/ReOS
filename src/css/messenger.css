@@ -1,0 +1,30 @@
+.conversation-container {
+    background-color: rgba(0,0,0,0.75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+}
+
+.conversation-container > .header {
+    background-color: rgba(0,0,0,0);
+    height: 60px;
+    padding: 0px;
+}
+
+.message > .response {
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+}
+
+.launcher {
+    background-color: rgba(0,0,0,0.75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+}
+
+.widget-container {
+  flex-direction: column-reverse;
+    top: 10px;
+    bottom: auto;
+}

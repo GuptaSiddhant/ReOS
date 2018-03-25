@@ -19,7 +19,7 @@ export class RivalRush extends React.Component {
                                     height="500px"
                                     id="myId"
                                     className="myClassname"
-                                    display="initial"
+                                    display="block"
                                     position="relative"
                                     allowFullScreen/>
                         </div>

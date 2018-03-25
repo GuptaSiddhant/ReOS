@@ -5,8 +5,9 @@ import registerServiceWorker from './registerServiceWorker';
 import {MenuBar} from "./components/MenuBar";
 import {Notes} from "./components/Notes";
 import './css/index.css';
-import './css/MenuBar.css';
+import './css/menuBar.css';
 import {RivalRush} from "./components/RivalRush";
+import {Messenger} from "./components/Messenger";
 
 
 
@@ -18,6 +19,7 @@ class App extends Component {
             <div className="app">
                 <div className="mainContainer" id="body">
                     <RivalRush/>
+                    <Messenger/>
                     <Notes/>
                 </div>
                 <MenuBar/>
