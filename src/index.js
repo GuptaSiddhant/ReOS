@@ -12,9 +12,9 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App d-flex flex-column">
+            <div className="App">
                 <MenuBar/>
-                <div className="align-self-stretch mainContainer" id="body">
+                <div className="mainContainer" id="body">
                 </div>
             </div>
         );

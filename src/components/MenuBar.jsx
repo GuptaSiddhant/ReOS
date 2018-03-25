@@ -32,8 +32,8 @@ class StatusBar extends React.Component {
         return (
             <div className="menuUI menuBar menuStatus">
                 {this.state.isOnline ?
-                    <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuItem"/> :
-                    <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuItem"/>}
+                    <img src={wifiTrue} alt="online" title="Connected to Internet" className="menuIcon"/> :
+                    <img src={wifiFalse} alt="Offline" title="No Connection Found" className="menuIcon"/>}
                 <span className="menuItem">
                     {this.state.date.toDateString() + ', ' + this.state.date.toLocaleTimeString()}
                 </span>
@@ -46,56 +46,68 @@ class GSBar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
+        this.toggleGS = this.toggleGS.bind(this);
+        this.toggleApp = this.toggleApp.bind(this);
         this.state = {
-            dropdownOpen: false
+            dropdownGS: false,
+            dropdownApp: false
         };
     }
 
-    toggle() {
+    toggleGS() {
         this.setState({
-            dropdownOpen: !this.state.dropdownOpen
+            dropdownGS: !this.state.dropdownGS
+        });
+    }
+
+    toggleApp() {
+        this.setState({
+            dropdownApp: !this.state.dropdownApp
         });
     }
 
     render() {
         return (
-            <Dropdown nav direction="down"  isOpen={this.state.dropdownOpen} toggle={this.toggle} className="menuUI menuBar menuNav">
-                <DropdownToggle nav className="gsButton">
-                    GS ReOS
-                </DropdownToggle>
-                <DropdownMenu className="menuUI menuDropDown">
-                    <DropdownItem header className="menuListHeader">Applications</DropdownItem>
-                    <DropdownItem className="menuList">Notepad</DropdownItem>
-                    <DropdownItem className="menuList">Browser</DropdownItem>
-                    <DropdownItem divider/>
-                    <DropdownItem header className="menuListHeader">System</DropdownItem>
-                    <DropdownItem className="menuList">About ReOS</DropdownItem>
-                    <DropdownItem className="menuList">Settings</DropdownItem>
-                    <DropdownItem className="menuList"
-                                  href="javascript:window.location.reload();">Refresh</DropdownItem>
-                    <DropdownItem className="menuList"
-                                  href="javascript:window.open('', '_self', '');window.close();">Exit</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
+            <div className="menuBar menuNav menuUI">
+                <Nav pills>
+                    <Dropdown nav direction="down" isOpen={this.state.dropdownGS} toggle={this.toggleGS}
+                              className="">
+                        <DropdownToggle nav className="gsButton">
+                            GS ReOS
+                        </DropdownToggle>
+                        <DropdownMenu className="menuUI menuDropDown">
+                            <DropdownItem className="menuList">About ReOS</DropdownItem>
+                            <DropdownItem className="menuList">Settings</DropdownItem>
+                            <DropdownItem className="menuList">Lock Screen</DropdownItem>
+                            <DropdownItem className="menuList"
+                                          href="javascript:window.location.reload();">Restart</DropdownItem>
+                            <DropdownItem className="menuList"
+                                          href="javascript:window.open('', '_self', '');window.close();">ShutDown</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                    <Dropdown nav direction="down" isOpen={this.state.dropdownApp} toggle={this.toggleApp}
+                              className="">
+                        <DropdownToggle nav className="menuItem">
+                            Applications
+                        </DropdownToggle>
+                        <DropdownMenu className="menuUI menuDropDown">
+                            <DropdownItem className="menuList">Notepad</DropdownItem>
+                            <DropdownItem className="menuList">Browser</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Nav>
+            </div>
         );
     }
 }
 
-export class MenuBar extends React.Component {
+export function MenuBar() {
 
-    constructor(props) {
-        super(props);
-        this.state = {uiMode: "dark"};
-    }
+    return (
+        <section>
+            <GSBar/>
+            <StatusBar/>
 
-    render() {
-        return (
-            <section>
-                <GSBar/>
-                <StatusBar/>
-
-            </section>
-        );
-    }
+        </section>
+    );
 }
