@@ -1,7 +1,8 @@
 import React from 'react';
 import wifiTrue from './assets/wifiTrue.svg';
 import wifiFalse from './assets/wifiFalse.svg';
-import {Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
+import githubLogo from './assets/githubLogo.svg';
+import {Nav, NavItem, NavLink, Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
 
 export function MenuBar() {
 
@@ -136,15 +137,21 @@ class StatusBar extends React.Component {
 
     render() {
         return (
-
             <div className="menuUI menuBar menuStatus">
                 <Nav pills>
+                    <NavItem>
+                        <NavLink href="https://github.com/GuptaSiddhant/ReOS" target="_blank" className="menuItem">
+                            <img src={githubLogo} className="menuIcon"/>
+                        </NavLink>
+                    </NavItem>
                     <Dropdown nav direction="up" isOpen={this.state.dropdownConnect} toggle={this.toggleConnect}>
                         <DropdownToggle nav className="menuItem">
                             <img src={this.state.isOnline ? wifiTrue : wifiFalse} className="menuIcon"/>
                         </DropdownToggle>
                         <DropdownMenu right className="menuUI menuDropDown">
-                            <DropdownItem header className="menuList">{this.state.isOnline ? "Connected to Internet" : "No Connection Found"}</DropdownItem>
+                            <DropdownItem header
+                                          className="menuListHeader">{this.state.isOnline ? "Connected to Internet" : "No Connection Found"}
+                            </DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                     <Dropdown nav direction="up" isOpen={this.state.dropdownTime} toggle={this.toggleTime}
@@ -153,7 +160,8 @@ class StatusBar extends React.Component {
                             {this.state.date.toLocaleTimeString()}
                         </DropdownToggle>
                         <DropdownMenu right className="menuUI menuDropDown">
-                            <DropdownItem header className="menuList">{this.state.date.toDateString()}</DropdownItem>
+                            <DropdownItem header
+                                          className="menuListHeader">{this.state.date.toDateString()}</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </Nav>

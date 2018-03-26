@@ -14,7 +14,7 @@ export class RivalRush extends React.Component {
                             <div className="windowHeading">Game - Rival Rush</div>
                         </strong>
                         <div className="">
-                            <Iframe url="https://cloudgames.com/games/html5/rival-rush-new-en-s-iga-cloud/index.html?pub=10"
+                            <Iframe url="https://cloudgames.com/games/html5/rival-rush-new-en-s-iga-cloud/"
                                     width="400px"
                                     height="500px"
                                     id="myId"

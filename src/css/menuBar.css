@@ -43,8 +43,8 @@
     color: white;
 }
 .menuItem:hover {
-    color: white;
     font-weight: bold;
+    color: white;
 }
 .menuIcon {
     height: 25px;
@@ -52,11 +52,11 @@
 }
 
 .menuList {
-    color: rgba(255,255,2555,0.75);
+    color: rgba(255,255,2555,1);
 }
 
 .menuListHeader {
-    color: rgba(255,255,2555,0.5);
+    color: rgba(255,255,2555,0.75);
     font-weight: bold;
 }
 
