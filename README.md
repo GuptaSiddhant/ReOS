@@ -1,6 +1,6 @@
 # GS ReOS
 An OS-like Interface running on web with React. 
-[Click here for Demo (Alpha)](http://git.guptasiddhant.com/ReOS/)
+[Click here for Demo (Alpha)](http://guptasiddhant.xyz/ReOS/)
 
 ## Installation
 __First install [NodeJS](http://nodejs.org).__ Then in the project directory (`cd ReOS`), you need to run commands:
